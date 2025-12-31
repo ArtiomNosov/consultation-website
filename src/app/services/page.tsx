@@ -1,12 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
 
 export default function Services() {
-  const [currentPage, setCurrentPage] = useState(1);
-  const servicesPerPage = 3;
-
   const allServices = [
     {
       id: 'career-consultation',
@@ -49,7 +45,8 @@ export default function Services() {
         'Отработка ответов на типовые вопросы',
         'Подготовка к техническим заданиям',
         'Советы по самопрезентации',
-        'Психологическая подготовка'
+        'Психологическая подготовка',
+        'Мок-собеседования для части направлений'
       ],
       format: '90-минутная онлайн-встреча'
     },
@@ -69,24 +66,9 @@ export default function Services() {
       format: '2 встречи + детальный план действий'
     },
     {
-      id: 'positioning',
-      title: 'Анализ сильных сторон и профессионального позиционирования',
-      price: '4 000 ₽',
-      duration: '1,5 часа онлайн',
-      description: 'Определение ваших уникальных преимуществ и создание сильного профессионального позиционирования на рынке труда.',
-      features: [
-        'Анализ уникальных компетенций',
-        'Создание личного бренда',
-        'Позиционирование в LinkedIn',
-        'Стратегия самопрезентации',
-        'План развития экспертизы'
-      ],
-      format: '1,5-часовая онлайн-встреча'
-    },
-    {
       id: 'offer-guarantee',
-      title: 'Доведение до оффера (постоплата)',
-      price: '10% от итогового оффера',
+      title: 'Сопровождение в поиске работы до трудоустройства',
+      price: '50% от первой зарплаты',
       duration: 'по результату',
       description: 'Полное сопровождение до получения оффера с оплатой только после успешного результата. Максимальная мотивация на результат.',
       features: [
@@ -94,15 +76,12 @@ export default function Services() {
         'Подготовка ко всем этапам отбора',
         'Переговоры о зарплате',
         'Помощь в выборе между офферами',
-        'Оплата только после получения работы'
+        'Оплата только после трудоустройства'
       ],
-      format: 'Длительное сопровождение до результата'
+      format: 'Длительное сопровождение до результата',
+      note: 'Процент и условия могут варьироваться от конкретной ситуации и обсуждаются с клиентом'
     }
   ];
-
-  const totalPages = Math.ceil(allServices.length / servicesPerPage);
-  const startIndex = (currentPage - 1) * servicesPerPage;
-  const currentServices = allServices.slice(startIndex, startIndex + servicesPerPage);
 
   const handleViewService = (serviceId: string) => {
     if (typeof window !== 'undefined' && (window as any).plausible) {
@@ -112,71 +91,92 @@ export default function Services() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div className="text-center mb-20">
+          <h1 className="text-5xl md:text-6xl font-black text-neutral-900 mb-6 leading-tight">
             Наши услуги
           </h1>
-          <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-            Комплексная поддержка на всех этапах карьерного развития
+          <p className="text-xl text-neutral-900 max-w-3xl mx-auto leading-relaxed font-semibold">
+            Поддержка на всех этапах карьерного развития
           </p>
         </div>
 
+        {/* CTA Block - Help Section */}
+        <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-12 border border-neutral-200 mb-16">
+          <h2 className="text-3xl md:text-4xl font-black text-neutral-900 mb-4">
+            Не знаете, какая услуга подходит?
+          </h2>
+          <p className="text-lg text-neutral-900 mb-8 max-w-2xl font-semibold">
+            Запишитесь на бесплатную 15-минутную консультацию и мы подберём оптимальное решение для вас
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block bg-primary-600 text-white px-10 py-4 rounded-lg text-lg font-black hover:bg-primary-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
+            Получить консультацию
+          </Link>
+        </div>
+
         {/* Services Grid */}
-        <div className="space-y-12">
-          {currentServices.map((service, index) => (
+        <div className="space-y-8">
+          {allServices.map((service, index) => (
             <div
               key={service.id}
               id={service.id}
-              className="bg-white rounded-lg shadow-sm border border-neutral-200 p-8"
+              className="bg-white rounded-xl shadow-sm border border-neutral-200 p-10 hover:shadow-lg transition-all duration-200"
               onClick={() => handleViewService(service.id)}
             >
-              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-8">
                 <div className="flex-1">
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-2">
+                  <h2 className="text-3xl font-black text-neutral-900 mb-4">
                     {service.title}
                   </h2>
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-sm text-neutral-600">
-                    <span className="bg-primary-100 text-primary-800 px-3 py-1 rounded-full">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                    <span className="bg-white border-2 border-neutral-900 text-neutral-900 px-4 py-2 rounded-lg font-black text-sm">
                       {service.price}
                     </span>
-                    <span className="bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full">
+                    <span className="bg-neutral-100 text-neutral-900 px-4 py-2 rounded-lg font-bold text-sm">
                       {service.duration}
                     </span>
                   </div>
                 </div>
               </div>
 
-              <p className="text-lg text-neutral-600 mb-6 leading-relaxed">
+              <p className="text-lg text-neutral-900 mb-8 leading-relaxed font-semibold">
                 {service.description}
               </p>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-10">
                 <div>
-                  <h3 className="text-lg font-semibold text-neutral-900 mb-3">
+                  <h3 className="text-xl font-black text-neutral-900 mb-5">
                     Что входит:
                   </h3>
-                  <ul className="space-y-2">
+                  <ul className="space-y-3">
                     {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
-                        <svg className="w-5 h-5 text-primary-600 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        <svg className="w-6 h-6 text-neutral-900 mt-0 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
-                        <span className="text-neutral-600">{feature}</span>
+                        <span className="text-neutral-900 font-bold">{feature}</span>
                       </li>
                     ))}
                   </ul>
+                  {service.note && (
+                    <p className="text-xs text-neutral-700 mt-6 font-semibold italic">
+                      * {service.note}
+                    </p>
+                  )}
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-neutral-900 mb-3">
+                  <h3 className="text-xl font-black text-neutral-900 mb-5">
                     Формат работы:
                   </h3>
-                  <p className="text-neutral-600 mb-4">
+                  <p className="text-neutral-900 mb-8 leading-relaxed font-semibold">
                     {service.format}
                   </p>
                   <Link
                     href="/contact"
-                    className="inline-block bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors duration-200"
+                    className="inline-block bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-4 rounded-lg font-black hover:from-primary-700 hover:to-primary-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
                     Записаться
                   </Link>
@@ -186,59 +186,11 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Pagination */}
-        {totalPages > 1 && (
-          <div className="flex justify-center mt-12">
-            <nav className="flex items-center space-x-2">
-              <button
-                onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-                disabled={currentPage === 1}
-                className="px-3 py-2 text-sm font-medium text-neutral-500 bg-white border border-neutral-300 rounded-md hover:bg-neutral-50 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                Назад
-              </button>
-              
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                <button
-                  key={page}
-                  onClick={() => setCurrentPage(page)}
-                  className={`px-3 py-2 text-sm font-medium rounded-md ${
-                    currentPage === page
-                      ? 'bg-primary-600 text-white'
-                      : 'text-neutral-500 bg-white border border-neutral-300 hover:bg-neutral-50'
-                  }`}
-                >
-                  {page}
-                </button>
-              ))}
-              
-              <button
-                onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
-                disabled={currentPage === totalPages}
-                className="px-3 py-2 text-sm font-medium text-neutral-500 bg-white border border-neutral-300 rounded-md hover:bg-neutral-50 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                Вперед
-              </button>
-            </nav>
-          </div>
-        )}
-
-        {/* CTA */}
+        {/* Services disclaimer */}
         <div className="text-center mt-16">
-          <div className="bg-primary-50 rounded-lg p-8">
-            <h2 className="text-2xl font-bold text-neutral-900 mb-4">
-              Не знаете, какая услуга подходит?
-            </h2>
-            <p className="text-lg text-neutral-600 mb-6">
-              Запишитесь на бесплатную 15-минутную консультацию
-            </p>
-            <Link
-              href="/contact"
-              className="inline-block bg-primary-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-700 transition-colors duration-200"
-            >
-              Получить консультацию
-            </Link>
-          </div>
+          <p className="text-sm text-neutral-700 font-semibold">
+            * Все услуги включают индивидуальный подход
+          </p>
         </div>
       </div>
     </div>

@@ -94,10 +94,10 @@ export default function Cases() {
     <div className="min-h-screen bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
-            Истории успеха
+          <h1 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
+            Результаты
           </h1>
-          <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
+          <p className="text-xl text-neutral-900 max-w-3xl mx-auto font-semibold">
             Реальные кейсы наших клиентов. Узнайте, как мы помогли им построить карьеру мечты.
           </p>
         </div>
@@ -133,9 +133,9 @@ export default function Cases() {
                       <div className="text-sm text-neutral-600 mb-1">Время до результата</div>
                       <div className="font-semibold text-neutral-900">{story.duration}</div>
                     </div>
-                    <div className="bg-primary-50 rounded-lg p-4">
-                      <div className="text-sm text-primary-600 mb-1">Рост зарплаты</div>
-                      <div className="font-semibold text-primary-700">{story.salaryIncrease}</div>
+                    <div className="bg-neutral-100 rounded-lg p-4">
+                      <div className="text-sm text-neutral-900 mb-1 font-bold">Рост зарплаты</div>
+                      <div className="font-black text-neutral-900">{story.salaryIncrease}</div>
                     </div>
                   </div>
                 </div>
@@ -147,7 +147,7 @@ export default function Cases() {
                     <span className="w-6 h-6 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-sm font-bold mr-2">!</span>
                     Проблема
                   </h3>
-                  <p className="text-neutral-600 leading-relaxed">
+                  <p className="text-neutral-900 leading-relaxed font-semibold">
                     {story.challenge}
                   </p>
                 </div>
@@ -157,7 +157,7 @@ export default function Cases() {
                     <span className="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-bold mr-2">💡</span>
                     Решение
                   </h3>
-                  <p className="text-neutral-600 leading-relaxed">
+                  <p className="text-neutral-900 leading-relaxed font-semibold">
                     {story.solution}
                   </p>
                 </div>
@@ -167,7 +167,7 @@ export default function Cases() {
                     <span className="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-bold mr-2">✓</span>
                     Результат
                   </h3>
-                  <p className="text-neutral-600 leading-relaxed">
+                  <p className="text-neutral-900 leading-relaxed font-semibold">
                     {story.result}
                   </p>
                 </div>
@@ -204,8 +204,8 @@ export default function Cases() {
         {/* CTA */}
         <div className="text-center mt-16">
           <div className="bg-primary-600 rounded-lg p-8 text-white">
-            <h2 className="text-2xl font-bold mb-4">
-              Хотите стать следующим успешным кейсом?
+            <h2 className="text-2xl font-black mb-4">
+              Хотите также?
             </h2>
             <p className="text-xl text-primary-100 mb-6">
               Запишитесь на консультацию и начните строить карьеру мечты

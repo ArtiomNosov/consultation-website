@@ -22,5 +22,31 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Improve text contrast */
+p, span, li, label, a {
+  color: #404040;
+}
+
+p {
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #171717;
+  font-weight: 700;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
