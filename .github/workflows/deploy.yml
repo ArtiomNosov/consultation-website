@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - cursor/mvp-9923 # Деплоим из текущей рабочей ветки
+      - manus/final-ui-update # Указываем вашу новую рабочую ветку
 
 permissions:
   contents: read
@@ -21,11 +21,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/node-latest@v4
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
       - name: Install dependencies
         run: npm install
       - name: Build with Next.js
@@ -38,7 +36,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps:deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
