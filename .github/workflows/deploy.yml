@@ -31,6 +31,11 @@ jobs:
           NODE_ENV: production
           NEXT_PUBLIC_BASE_PATH: /consultation-website
         run: npm run build
+      - name: Debug build output
+        run: |
+          ls -la out/
+          ls -la out/images/ || echo "Images directory not found"
+          find out -name "*.jpg" -o -name "*.png" | head -10
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import { getImagePath } from '@/lib/paths';
 
 export default function Home() {
   const [expandedSector, setExpandedSector] = useState<string | null>(null);
@@ -30,19 +31,19 @@ export default function Home() {
       name: "Артём",
       role: "из джуна в медла ML-инженера",
       description: "После консультаций мы определили карьерный вектор, обновили портфолио и резюме. Через 3 месяца он сменил компанию и увеличил зарплату в 2,5 раза.",
-      avatar: "/images/avatar-client-artem.jpg",
+      avatar: getImagePath("/images/avatar-client-artem.jpg"),
     },
     {
       name: "Мария",
       role: "экономист → аналитик данных",
       description: "Мы собрали план перехода, обновили профиль на HH и подготовили к собеседованиям. Через 5 недель Мария получила оффер в продуктовую компанию.",
-      avatar: "/images/avatar-maria.jpg",
+      avatar: getImagePath("/images/avatar-maria.jpg"),
     },
     {
       name: "Илья",
       role: "менеджер → продакт-менеджер",
       description: "После 3 встреч разобрали логику собеседований и составили портфолио. Сейчас Илья работает в крупном финтехе.",
-      avatar: "/images/avatar-ilya.jpg",
+      avatar: getImagePath("/images/avatar-ilya.jpg"),
     },
   ];
 
@@ -203,7 +204,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="relative h-64 sm:h-80 md:h-full min-h-96 rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src="/images/avatar-artem.jpg"
+                src={getImagePath("/images/avatar-artem.jpg")}
                 alt="Артём"
                 fill
                 className="object-cover"
