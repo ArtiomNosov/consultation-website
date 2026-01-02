@@ -79,7 +79,7 @@ export default function Home() {
                   type="text"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Ваш контакт"
+                  placeholder="Введите ваш контакт"
                   className="flex-1 px-4 sm:px-5 py-3 sm:py-4 border-2 border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-neutral-900 placeholder-neutral-500 font-medium text-sm sm:text-base"
                 />
                 <button
