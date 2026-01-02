@@ -69,7 +69,7 @@ export default function Home() {
             </h1>
             
             <p className="text-base sm:text-lg md:text-xl text-neutral-900 leading-relaxed font-semibold mb-5 sm:mb-6 md:mb-8">
-              Персональный наставник поможет вам определить цели, развить нужные навыки и получить работу мечты с достойной зарплатой.
+              Персональный наставник поможет вам определить цели, развить нужные навыки и получить работу мечты с достойной зарплатой
             </p>
 
             {/* Email capture form */}
