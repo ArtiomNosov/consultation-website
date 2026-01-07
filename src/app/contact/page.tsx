@@ -68,7 +68,7 @@ Email: ${formData.email}
 ${formData.message}
     `.trim();
 
-    const mailtoLink = `mailto:artem@nastavnik.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:work-mentor@rambler.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
 
     setIsSubmitted(true);
@@ -272,7 +272,7 @@ ${formData.message}
                     Email
                   </h3>
                   <p className="text-neutral-900 font-bold">
-                    artem@nastavnik.ru
+                  work-mentor@rambler.ru
                   </p>
                 </div>
               </div>
