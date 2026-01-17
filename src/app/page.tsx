@@ -29,7 +29,7 @@ export default function Home() {
   const successStories = [
     {
       name: "Артём",
-      role: "из джуна в медла ML-инженера",
+      role: "из джуна в мидла ML-инженера",
       description: "После консультаций мы определили карьерный вектор, обновили портфолио и резюме. Через 3 месяца он сменил компанию и увеличил зарплату в 2,5 раза.",
       avatar: getImagePath("/images/avatar-client-artem.jpg"),
     },

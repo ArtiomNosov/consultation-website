@@ -8,7 +8,7 @@ export default function Cases() {
       id: 1,
       name: "Артём",
       role: "ML-инженер",
-      transition: "из джуна в медла",
+      transition: "из джуна в мидла",
       duration: "3 месяца",
       salaryIncrease: "2.5x",
       industry: "IT / Машинное обучение",
@@ -205,7 +205,7 @@ export default function Cases() {
         <div className="text-center mt-16">
           <div className="bg-primary-600 rounded-lg p-8 text-white">
             <h2 className="text-2xl font-black mb-4">
-              Хотите также?
+              Хотите так же?
             </h2>
             <p className="text-xl text-primary-100 mb-6">
               Запишитесь на консультацию и начните строить карьеру мечты
